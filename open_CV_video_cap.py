@@ -6,6 +6,9 @@ import io
 import os
 
 
+"""this is very much a work in progress. I'm just taking my best guess
+for cv2 and stream stuff. comments indicate what I want to do, but
+I'm just getting started."""
 
 experiment_name = "test"
 save_dir = "dir"
@@ -16,6 +19,11 @@ filenames = [os.path.join(save_dir, experiment_name + '_cam_%i_'%i) for i
 
 with picamera.PiCamera() as camera:
     stream = io.BytesIO()
+    cam_stream.capture(stream, use_video_port = True)
+
+    #get the shape of the images to pass to the cv writer
+    h, w = stream.shape()
+
 
 
 
